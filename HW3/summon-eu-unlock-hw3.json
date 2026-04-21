@@ -8,7 +8,7 @@
       "mux": 1,
       "ops": [
         { "type": "set_bit", "bit": 19, "val": 0 },
-        { "type": "set_bit", "bit": 46, "val": 1 }
+        { "type": "set_bit", "bit": 47, "val": 1 }
       ]
     }
   ]
