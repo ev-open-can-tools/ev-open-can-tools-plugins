@@ -7,7 +7,7 @@
     {
       "id": 921,
       "ops": [
-        { "type": "or_byte", "byte": 1, "val": 32 },
+        { "type": "or_byte", "byte": 1, "val": 32, "description": "Sets the ISA chime suppress bit in byte 1." },
         { "type": "checksum" }
       ]
     }

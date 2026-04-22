@@ -8,9 +8,9 @@
       "id": 1021,
       "mux": 0,
       "ops": [
-        { "type": "set_bit", "bit": 38, "val": 1 },
-        { "type": "set_bit", "bit": 46, "val": 1 },
-        { "type": "set_bit", "bit": 60, "val": 1 }
+        { "type": "set_bit", "bit": 38, "val": 1, "description": "Sets the TLSSC bypass bit." },
+        { "type": "set_bit", "bit": 46, "val": 1, "description": "Sets UI_autosteerEnabled bit 0 to enable AD." },
+        { "type": "set_bit", "bit": 60, "val": 1, "description": "Sets the HW4 extended enable bit." }
       ]
     }
   ]

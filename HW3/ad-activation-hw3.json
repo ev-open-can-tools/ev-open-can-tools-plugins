@@ -1,5 +1,5 @@
 {
-  "name": "AD Activation HW3",
+  "name": "FSD Activation HW3",
   "version": "1.0.0",
   "author": "ev-open-can-tools",
   "description": "NOT SAVE, YOU WILL GET A BAN",
@@ -8,7 +8,7 @@
       "id": 1021,
       "mux": 0,
       "ops": [
-        { "type": "set_bit", "bit": 46, "val": 1 }
+        { "type": "set_bit", "bit": 46, "val": 1, "description": "Sets UI_autosteerEnabled bit 0 to enable FSD." }
       ]
     }
   ]

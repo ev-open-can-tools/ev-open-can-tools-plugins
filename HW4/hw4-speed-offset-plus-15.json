@@ -8,7 +8,7 @@
       "id": 1021,
       "mux": 2,
       "ops": [
-        { "type": "set_byte", "byte": 1, "val": 21, "mask": 63 }
+        { "type": "set_byte", "byte": 1, "val": 21, "mask": 63, "description": "Sets the speed offset byte to +15." }
       ]
     }
   ]
