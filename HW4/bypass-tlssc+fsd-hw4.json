@@ -1,8 +1,8 @@
 {
-  "name": "Bypass TLSSC HW4",
+  "name": "Bypass TLSSC HW4 and include FSD activation",
   "version": "1.0.0",
   "author": "ev-open-can-tools",
-  "description": "NOT SAFE, YOU WILL GET BANNED",
+  "description": "Will bypass TLSSC and enable FSD, NOT SAFE, YOU WILL GET BANNED",
   "rules": [
     {
       "id": 1021,

@@ -1,14 +1,14 @@
 {
-  "name": "Emergency Vehicle Detection HW4",
-  "version": "1.0.0",
+  "name": "Emergency Vehicle Detection HW4 with FSD enabling",
+  "version": "2.0.0",
   "author": "ev-open-can-tools",
-  "description": "NOT SAFE, YOU WILL GET BANNED",
+  "description": "Will enable FSD and emergency vehicle detection, NOT SAFE, YOU WILL GET BANNED",
   "rules": [
     {
       "id": 1021,
       "mux": 0,
       "ops": [
-        { "type": "set_bit", "bit": 46, "val": 1, "description": "Sets UI_autosteerEnabled bit 0 to enable AD." },
+        { "type": "set_bit", "bit": 46, "val": 1, "description": "Sets UI_autosteerEnabled bit 0 to enable FSD." },
         { "type": "set_bit", "bit": 59, "val": 1, "description": "Sets the emergency vehicle detection bit." },
         { "type": "set_bit", "bit": 60, "val": 1, "description": "Sets the HW4 extended enable bit." }
       ]

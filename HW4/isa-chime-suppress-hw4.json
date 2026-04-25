@@ -2,7 +2,7 @@
   "name": "ISA Chime Suppress HW4",
   "version": "1.0.0",
   "author": "ev-open-can-tools",
-  "description": "NOT SAFE, YOU WILL GET BANNED",
+  "description": "Turn off speed limit chime",
   "rules": [
     {
       "id": 921,

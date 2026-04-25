@@ -1,8 +1,8 @@
 {
-  "name": "FSD Activation HW4",
-  "version": "1.0.0",
+  "name": "FSD Activation HW4 (without TLSSC bypass)",
+  "version": "1.0.1",
   "author": "ev-open-can-tools",
-  "description": "NOT SAFE, YOU WILL GET BANNED",
+  "description": "Will enable FSD, NOT SAFE, YOU WILL GET BANNED",
   "rules": [
     {
       "id": 1021,
