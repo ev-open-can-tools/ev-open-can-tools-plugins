@@ -1,0 +1,17 @@
+{
+  "name": "Enable TSLLC and Continue on Green with Car in Front without confirmation needed from stalk",
+  "version": "1.0",
+  "rules": [
+    {
+      "id": 1021,
+      "bus": "VEH",
+      "mux": 0,
+      "mux_mask": 7,
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 7, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 38, "val": 1, "signal": "UI_fsdStopsControlEnabled", "description": "Enable FSD stops control (stop signs/lights). TSLLC proven." },
+        { "type": "set_bit", "bit": 39, "val": 1, "signal": "UI_fsdContinueOnGreenWithCIPV", "description": "Continue on green with lead car. TSLLC proven." }
+      ]
+    }
+  ]
+}
