@@ -1,0 +1,13 @@
+{
+  "name": "Enables RHD",
+  "version": "1.0",
+  "description": "Enables Right Hand Drive mode untested please use with caution, do not enable this when driving on the left side of the road",
+  "rules": [
+    {
+      "id": 1016,
+      "ops": [
+        { "type": "set_bit", "bit": 41, "val": 1, "description": "Sets UI_drivingSide bit 1, resulting in RHD." }
+      ]
+    }
+  ]
+}
