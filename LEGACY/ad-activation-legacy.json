@@ -1,0 +1,20 @@
+{
+  "name": "FSD Activation Legacy",
+  "version": "1.0.0",
+  "author": "DukeNukem-dev",
+  "description": "FSD activation for Legacy HW1/HW2/HW3 vehicles (pre-Raven)",
+  "rules": [
+    {
+      "id": 1006,
+      "mux": 0,
+      "ops": [
+        {
+          "type": "set_bit",
+          "bit": 46,
+          "val": 1,
+          "description": "Sets UI_autosteerEnabled bit to enable FSD."
+        }
+      ]
+    }
+  ]
+}
