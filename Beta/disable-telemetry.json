@@ -1,0 +1,161 @@
+{
+  "name": "Disable Telemetry UNTESTED",
+  "version": "1.0.0",
+  "description": "Unknown if this really works! Clears telemetry, logging, and ECU log upload request bits found in the DBC.",
+  "rules": [
+    {
+      "id": 1016,
+      "bus": "CH",
+      "description": "UI_driverAssistControl (0x3F8): disable clip, trip, and road segment telemetry.",
+      "ops": [
+        { "type": "set_bit", "bit": 19, "val": 0, "signal": "UI_enableClipParkedTelemetry", "description": "Clears UI_enableClipParkedTelemetry." },
+        { "type": "set_bit", "bit": 42, "val": 0, "signal": "UI_enableClipTelemetry", "description": "Clears UI_enableClipTelemetry." },
+        { "type": "set_bit", "bit": 43, "val": 0, "signal": "UI_enableTripTelemetry", "description": "Clears UI_enableTripTelemetry." },
+        { "type": "set_bit", "bit": 44, "val": 0, "signal": "UI_enableRoadSegmentTelemetry", "description": "Clears UI_enableRoadSegmentTelemetry." },
+        { "type": "set_bit", "bit": 55, "val": 0, "signal": "UI_enableClipStartStopTelemetry", "description": "Clears UI_enableClipStartStopTelemetry." }
+      ]
+    },
+    {
+      "id": 1021,
+      "bus": ["CH", "VEH"],
+      "mux": 1,
+      "mux_mask": 7,
+      "description": "UI_autopilotControl (0x3FD) mux 1: disable cabin camera and autopilot telemetry flags.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 1, "mask": 7, "description": "Mux selector = 1." },
+        { "type": "set_bit", "bit": 48, "val": 0, "signal": "UI_enableCabinCameraTelemetry", "description": "Clears UI_enableCabinCameraTelemetry." },
+        { "type": "set_bit", "bit": 50, "val": 0, "signal": "UI_autopilotTelemetryInChina", "description": "Clears UI_autopilotTelemetryInChina." }
+      ]
+    },
+    {
+      "id": 905,
+      "bus": ["CH", "PARTY"],
+      "description": "DAS_status2 (0x389): disable PMM logging request and radar telemetry.",
+      "ops": [
+        { "type": "set_bit", "bit": 13, "val": 0, "signal": "DAS_pmmLoggingRequest", "description": "Clears DAS_pmmLoggingRequest." },
+        { "type": "set_bit", "bit": 34, "val": 0, "signal": "DAS_radarTelemetry", "description": "Clears DAS_radarTelemetry bit 0." },
+        { "type": "set_bit", "bit": 35, "val": 0, "signal": "DAS_radarTelemetry", "description": "Clears DAS_radarTelemetry bit 1." },
+        { "type": "counter", "byte": 6, "mask": 240 },
+        { "type": "checksum" }
+      ]
+    },
+    {
+      "id": 947,
+      "bus": ["CH", "VEH"],
+      "description": "UI_vehicleControl2 (0x3B3): disable VCSEC conditional logging.",
+      "ops": [
+        { "type": "set_bit", "bit": 31, "val": 0, "signal": "UI_conditionalLoggingEnabledVCSEC", "description": "Clears UI_conditionalLoggingEnabledVCSEC." }
+      ]
+    },
+    {
+      "id": 832,
+      "bus": ["CH", "VEH"],
+      "mux": 0,
+      "mux_mask": 15,
+      "description": "VCFRONT_alertMatrix (0x340) mux 0: disable ECU log upload request.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 15, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 33, "val": 0, "signal": "VCFRONT_a030_ECULogUploadRequest", "description": "Clears VCFRONT_a030_ECULogUploadRequest." }
+      ]
+    },
+    {
+      "id": 833,
+      "bus": "VEH",
+      "mux": 0,
+      "mux_mask": 15,
+      "description": "VCFRONT1_alertMatrix (0x341) mux 0: disable ECU log upload request.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 15, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 33, "val": 0, "signal": "VCFRONT1_a030_ECULogUploadRequest", "description": "Clears VCFRONT1_a030_ECULogUploadRequest." }
+      ]
+    },
+    {
+      "id": 834,
+      "bus": "VEH",
+      "mux": 0,
+      "mux_mask": 15,
+      "description": "VCFRONT2_alertMatrix (0x342) mux 0: disable ECU log upload request.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 15, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 33, "val": 0, "signal": "VCFRONT2_a030_ECULogUploadRequest", "description": "Clears VCFRONT2_a030_ECULogUploadRequest." }
+      ]
+    },
+    {
+      "id": 864,
+      "bus": "VEH",
+      "mux": 0,
+      "mux_mask": 15,
+      "description": "VCLEFT_alertMatrix (0x360) mux 0: disable ECU log upload request.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 15, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 33, "val": 0, "signal": "VCLEFT_a030_ECULogUploadRequest", "description": "Clears VCLEFT_a030_ECULogUploadRequest." }
+      ]
+    },
+    {
+      "id": 954,
+      "bus": "CH",
+      "mux": 0,
+      "mux_mask": 15,
+      "description": "USM_alertMatrix (0x3BA) mux 0: disable ECU log upload request.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 15, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 33, "val": 0, "signal": "USM_a030_ECULogUploadRequest", "description": "Clears USM_a030_ECULogUploadRequest." }
+      ]
+    },
+    {
+      "id": 960,
+      "bus": "VEH",
+      "mux": 0,
+      "mux_mask": 15,
+      "description": "VCRIGHT_alertMatrix (0x3C0) mux 0: disable ECU log upload request.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 15, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 33, "val": 0, "signal": "VCRIGHT_a030_ECULogUploadRequest", "description": "Clears VCRIGHT_a030_ECULogUploadRequest." }
+      ]
+    },
+    {
+      "id": 968,
+      "bus": "VEH",
+      "mux": 0,
+      "mux_mask": 15,
+      "description": "EPBL_alertMatrix (0x3C8) mux 0: disable ECU log upload request.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 15, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 33, "val": 0, "signal": "EPBL_a030_ECULogUploadRequest", "description": "Clears EPBL_a030_ECULogUploadRequest." }
+      ]
+    },
+    {
+      "id": 973,
+      "bus": "VEH",
+      "mux": 0,
+      "mux_mask": 15,
+      "description": "VCBATT0_alertMatrix (0x3CD) mux 0: disable ECU log upload request.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 15, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 33, "val": 0, "signal": "VCBATT0_a030_ECULogUploadRequest", "description": "Clears VCBATT0_a030_ECULogUploadRequest." }
+      ]
+    },
+    {
+      "id": 974,
+      "bus": "VEH",
+      "mux": 0,
+      "mux_mask": 15,
+      "description": "VCBATT1_alertMatrix (0x3CE) mux 0: disable ECU log upload request.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 15, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 33, "val": 0, "signal": "VCBATT1_a030_ECULogUploadRequest", "description": "Clears VCBATT1_a030_ECULogUploadRequest." }
+      ]
+    },
+    {
+      "id": 975,
+      "bus": "VEH",
+      "mux": 0,
+      "mux_mask": 15,
+      "description": "VCBATT2_alertMatrix (0x3CF) mux 0: disable ECU log upload request.",
+      "ops": [
+        { "type": "set_byte", "byte": 0, "val": 0, "mask": 15, "description": "Mux selector = 0." },
+        { "type": "set_bit", "bit": 33, "val": 0, "signal": "VCBATT2_a030_ECULogUploadRequest", "description": "Clears VCBATT2_a030_ECULogUploadRequest." }
+      ]
+    }
+  ]
+}
